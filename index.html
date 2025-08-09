@@ -35,11 +35,12 @@
             overflow-x: hidden;
         }
 
-        /* Fondo hero optimizado para móviles */
+        /* Fondo hero simplificado y funcional */
         .header-hero-container {
             position: relative;
             overflow: hidden;
             min-height: 100vh;
+            height: 100vh;
         }
 
         .iridescent-bg {
@@ -48,14 +49,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, 
-                #1a4a82 0%, 
-                #2a5a9a 25%, 
-                #c4302b 50%, 
-                #d63c36 75%, 
-                #e74c3c 100%);
-            background-size: 300% 300%;
-            animation: gradientBG 18s ease infinite;
+            background: linear-gradient(135deg, #1a4a82, #2a5a9a, #c4302b, #d63c36);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
             z-index: -1;
         }
 
@@ -72,7 +68,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, rgba(255,255,255,0.25) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
             z-index: 1;
         }
 
@@ -144,7 +140,7 @@
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(5px);
             box-shadow: 0 3px 15px rgba(0,0,0,0.1);
-            border-radius: 10px; /* Bordes ligeramente redondeados */
+            border-radius: 10px;
             overflow: hidden;
             transition: var(--transition);
         }
@@ -226,18 +222,44 @@
             position: relative;
             z-index: 2;
             text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+            animation: fadeInScale 1.5s ease-out;
         }
+        
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 1.5rem;
             font-weight: 800;
             line-height: 1.25;
         }
+        
         .hero p {
             font-size: 1.15rem;
             margin: 0 auto 2.5rem;
             max-width: 700px;
             opacity: 0.95;
+            animation: fadeInUp 1.5s ease-out 0.3s both;
+        }
+        
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .cta-button {
@@ -255,7 +277,21 @@
             overflow: hidden;
             z-index: 1;
             text-decoration: none;
+            animation: pulse 2s infinite;
         }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(196, 48, 43, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(196, 48, 43, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(196, 48, 43, 0);
+            }
+        }
+        
         .cta-button::before {
             content: '';
             position: absolute;
@@ -272,6 +308,7 @@
             transform: translateY(-5px);
             background-color: #d63c36;
             box-shadow: 0 8px 25px rgba(196, 48, 43, 0.4);
+            animation: none;
         }
         .cta-button:hover::before {
             transform: translateX(100%);
@@ -724,10 +761,8 @@
         <header class="header">
             <div class="container header-content">
                 <div class="logo-section">
-                    <!-- Contenedor del logo -->
                     <div class="logo-container">
-                        <!-- Reemplaza "logo-brigada.png" con la ruta a tu archivo de logo -->
-                        <img src="logo.png" alt="Logo Brigada Educativa Cubana" class="logo-img">
+                        <img src="https://cdn.pixabay.com/photo/2016/08/25/07/30/red-1618916_960_720.png" alt="Logo Brigada Educativa Cubana" class="logo-img">
                     </div>
                     <div>
                         <h1 class="site-title">Brigada Educativa Cubana</h1>
@@ -748,7 +783,7 @@
         <section class="hero" id="inicio">
             <div class="hero-content">
                 <h1>Educación para el Futuro: Cooperación, Crecimiento y Solidaridad</h1>
-                <p>Nuestra misión es sembrar conocimiento y cosechar progreso.La Brigada Educativa Cubana trabaja hombro a hombro con el pueblo de Guinea Ecuatorial, transformando la educación y construyendo un futuro más brillante y equitativo para las próximas generaciones.</p>
+                <p>Nuestra misión es sembrar conocimiento y cosechar progreso. La Brigada Educativa Cubana trabaja hombro a hombro con el pueblo de Guinea Ecuatorial, transformando la educación y construyendo un futuro más brillante y equitativo para las próximas generaciones.</p>
                 <a href="#servicios" class="cta-button">Conoce nuestro trabajo</a>
             </div>
         </section>
@@ -830,13 +865,13 @@
                                 <i class="fas fa-laptop-code card-icon"></i>
                             </div>
                             <div>
-                                <h3 class="card-title">Mejoras Educativa</h3>
+                                <h3 class="card-title">Tecnología Educativa</h3>
                                 <p class="card-summary">Implementamos soluciones para modernizar el sistema educativo.</p>
                             </div>
                         </div>
                         <div class="card-expanded-content">
                             <p>Hemos proporcionado formación específica a docentes. Desarrollamos una plataforma de aprendizaje en línea con contenidos adaptados al currículo local.</p>
-                            <p>El programa " Guines " introduce a estudiantes en los fundamentos de la programación y el pensamiento computacional.</p>
+                            <p>El programa "Guines" introduce a estudiantes en los fundamentos de la programación y el pensamiento computacional.</p>
                         </div>
                         <a href="https://www.ejemplo.com/tecnologia-educativa" target="_blank" class="card-button">Más información</a>
                     </div>
