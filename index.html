@@ -48,7 +48,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(235deg, 
+            background: linear-gradient(135deg, 
                 #1a4a82 0%, 
                 #2a5a9a 25%, 
                 #c4302b 50%, 
@@ -174,6 +174,7 @@
             font-size: 0.95rem;
             border-radius: 30px;
             transition: var(--transition);
+            text-decoration: none;
         }
 
         .nav-menu a:hover {
@@ -243,6 +244,7 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
+            text-decoration: none;
         }
         .cta-button::before {
             content: '';
@@ -434,6 +436,8 @@
             width: fit-content;
             margin-top: 1.2rem;
             margin-left: 85px;
+            text-decoration: none;
+            cursor: pointer;
         }
         
         .card:hover .card-button {
@@ -512,6 +516,7 @@
             align-items: center;
             justify-content: center;
             font-size: 1.2rem;
+            text-decoration: none;
         }
         .social-media a:hover { 
             transform: translateY(-5px); 
@@ -695,8 +700,9 @@
             /* Iconos de redes sociales en fila en móviles */
             .social-media {
                 flex-direction: row !important;
-                gap: 1rem;
+                flex-wrap: nowrap;
                 justify-content: center;
+                gap: 0.8rem;
             }
         }
     </style>
@@ -712,7 +718,7 @@
                     <i class="fas fa-graduation-cap logo"></i>
                     <div>
                         <h1 class="site-title">Brigada Educativa Cubana</h1>
-                        <p class="subtitle">Cooperación Educativa en Guinea Ecuatorial/Añisok</p>
+                        <p class="subtitle">Cooperación Educativa</p>
                     </div>
                 </div>
                 <nav class="nav-menu">
@@ -729,7 +735,7 @@
         <section class="hero" id="inicio">
             <div class="hero-content">
                 <h1>Educación para el Futuro: Cooperación, Crecimiento y Solidaridad</h1>
-                <p>Nuestra misión es sembrar conocimiento y cosechar progreso. La Brigada Educativa Cubana trabaja hombro a hombro con el pueblo de Guinea Ecuatorial, transformando la educación y construyendo un futuro más brillante y equitativo para las próximas generaciones.</p>
+                <p>Nuestra misión es sembrar conocimiento y cosechar progreso. Desde 1976, la Brigada Educativa Cubana trabaja hombro a hombro con el pueblo de Guinea Ecuatorial, transformando la educación y construyendo un futuro más brillante y equitativo para las próximas generaciones.</p>
                 <a href="#servicios" class="cta-button">Conoce nuestro trabajo</a>
             </div>
         </section>
@@ -740,7 +746,7 @@
             <div class="container">
                 <h2 class="section-title">Nuestra Misión</h2>
                 <p class="section-subtitle">Creemos firmemente en el poder de la educación para generar un cambio duradero y positivo en las comunidades.</p>
-                <p class="mission-statement">"Llevamos la excelencia educativa cubana , formando generaciones con valores de solidaridad, cooperación y desarrollo humano sostenible, inspirando a cada estudiante a ser un agente de cambio en su sociedad."</p>
+                <p class="mission-statement">"Llevamos la excelencia educativa cubana a Guinea Ecuatorial, formando generaciones con valores de solidaridad, cooperación y desarrollo humano sostenible, inspirando a cada estudiante a ser un agente de cambio en su sociedad."</p>
             </div>
         </section>
 
@@ -758,14 +764,14 @@
                             </div>
                             <div>
                                 <h3 class="card-title">Formación Docente</h3>
-                                <p class="card-summary">Programas de capacitación continua para docentes con enfoque en metodologías pedagógicas actuales.</p>
+                                <p class="card-summary">Programas de capacitación continua para docentes con enfoque en metodologías pedagógicas innovadoras.</p>
                             </div>
                         </div>
                         <div class="card-expanded-content">
                             <p>Nuestros cursos están diseñados para fortalecer habilidades pedagógicas, gestión de aula y aplicación de tecnologías educativas. Creemos que un docente bien formado es la base de un sistema educativo de éxito.</p>
                             <p>También ofrecemos talleres especializados en inclusión educativa para atender a estudiantes con necesidades diversas.</p>
                         </div>
-                        <button class="card-button">Más información</button>
+                        <a href="https://www.ejemplo.com/formacion-docente" target="_blank" class="card-button">Más información</a>
                     </div>
                     
                     <!-- Tarjeta 2 -->
@@ -783,7 +789,7 @@
                             <p>Promovemos actividades prácticas y proyectos colaborativos para desarrollar interés por el aprendizaje. Trabajamos con instituciones locales para asegurar que los contenidos sean relevantes y culturalmente apropiados.</p>
                             <p>Hemos implementado programas de refuerzo escolar que han mejorado significativamente los resultados académicos de los estudiantes.</p>
                         </div>
-                        <button class="card-button">Más información</button>
+                        <a href="https://www.ejemplo.com/educacion-basica" target="_blank" class="card-button">Más información</a>
                     </div>
                     
                     <!-- Tarjeta 3 -->
@@ -801,7 +807,7 @@
                             <p>Involucramos a padres de familia y líderes locales en programas de alfabetización para adultos y talleres de salud. Hemos establecido bibliotecas comunitarias en zonas rurales como centros de aprendizaje permanente.</p>
                             <p>Nuestro programa "Escuelas Abiertas" ha recibido reconocimiento internacional por su impacto en el desarrollo comunitario.</p>
                         </div>
-                        <button class="card-button">Más información</button>
+                        <a href="https://www.ejemplo.com/proyectos-comunitarios" target="_blank" class="card-button">Más información</a>
                     </div>
                     
                     <!-- Tarjeta 4 -->
@@ -812,14 +818,14 @@
                             </div>
                             <div>
                                 <h3 class="card-title">Tecnología Educativa</h3>
-                                <p class="card-summary">Implementamos soluciones para modernizar el sistema educativo.</p>
+                                <p class="card-summary">Implementamos soluciones tecnológicas para modernizar el sistema educativo.</p>
                             </div>
                         </div>
                         <div class="card-expanded-content">
                             <p>Hemos equipado más de 50 escuelas con laboratorios de computación y proporcionado formación específica a docentes. Desarrollamos una plataforma de aprendizaje en línea con contenidos adaptados al currículo local.</p>
                             <p>El programa "Programadores del Futuro" introduce a estudiantes en los fundamentos de la programación y el pensamiento computacional.</p>
                         </div>
-                        <button class="card-button">Más información</button>
+                        <a href="https://www.ejemplo.com/tecnologia-educativa" target="_blank" class="card-button">Más información</a>
                     </div>
                 </div>
             </div>
@@ -835,10 +841,10 @@
                 <div><i class="fas fa-map-marker-alt"></i> Añisok, Guinea Ecuatorial</div>
             </div>
             <div class="social-media">
-                <a href="#"><i class="fab fa-facebook-f"></i>https://www.facebook.com/profile.php?id=61564763713026&sk=about</a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61564763713026&sk=about" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/brigadaeducativa" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com/brigadaeducativacubana" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com/brigadaeducativacubana" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
             </div>
             <p class="copyright">
                 &copy; 2025 Brigada Educativa Cubana. Todos los derechos reservados.
@@ -874,6 +880,30 @@
                 el.style.transform = 'translateY(30px)';
                 el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
                 observer.observe(el);
+            });
+            
+            // Scroll suave para los enlaces internos
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Actualizar clase activa en el menú
+                        document.querySelectorAll('.nav-menu a').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        this.classList.add('active');
+                    }
+                });
             });
         });
     </script>
