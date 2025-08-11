@@ -5,7 +5,965 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mi Brigada Educativa</title>
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="s<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brigada Educativa Cubana</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Variables y estilos base */
+        :root {
+            --color-primary: #1a4a82; /* Azul marino */
+            --color-secondary: #c4302b; /* Rojo */
+            --color-white: #ffffff;
+            --color-light-bg: #f9fbfd;
+            --color-card-bg: #ffffff;
+            --color-card-hover: #f0f7ff;
+            --font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            --border-radius: 16px;
+            --transition: all 0.4s ease;
+            --box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            --box-shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            line-height: 1.7;
+            color: #333;
+            background-color: var(--color-light-bg);
+            overflow-x: hidden;
+        }
+
+        /* Fondo hero simplificado y funcional */
+        .header-hero-container {
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            height: 100vh;
+        }
+
+        .iridescent-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(235deg, #1a4a82, #2a5a9a, #c4302b, #d63c36);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            z-index: -1;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .iridescent-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Cabecera optimizada para móviles */
+        .header {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            padding: 0.5rem 0;
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header.scrolled {
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            padding: 0.3rem 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            gap: 1rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: var(--transition);
+        }
+
+        .header .logo,
+        .header .site-title,
+        .header .subtitle,
+        .header .nav-menu a {
+            color: var(--color-white);
+            transition: var(--transition);
+        }
+
+        .header.scrolled .logo,
+        .header.scrolled .site-title,
+        .header.scrolled .nav-menu a {
+            color: var(--color-primary);
+        }
+        .header.scrolled .subtitle {
+            color: #666;
+        }
+        
+        /* Estilo para el contenedor del logo */
+        .logo-container {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .logo-img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+        
+        .site-title { 
+            font-size: 1.5rem; 
+            font-weight: 700; 
+            margin: 0; 
+            letter-spacing: -0.3px;
+        }
+        .subtitle { 
+            font-size: 0.85rem; 
+            font-weight: 400; 
+            margin-top: 0.1rem; 
+            opacity: 0.9;
+            display: block;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 1.2rem;
+        }
+
+        .nav-menu a {
+            font-weight: 600;
+            padding: 0.45rem 0.9rem;
+            position: relative;
+            font-size: 0.95rem;
+            border-radius: 30px;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background-color: var(--color-secondary);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        .nav-menu a:hover::after, .nav-menu a.active::after {
+            width: 70%;
+        }
+
+        /* Hero section optimizado */
+        .hero {
+            padding: 10rem 1.5rem 6rem;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            color: var(--color-white);
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+            animation: fadeInScale 1.5s ease-out;
+        }
+        
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            line-height: 1.25;
+        }
+        
+        .hero p {
+            font-size: 1.15rem;
+            margin: 0 auto 2.5rem;
+            max-width: 700px;
+            opacity: 0.95;
+            animation: fadeInUp 1.5s ease-out 0.3s both;
+        }
+        
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-button {
+            background-color: var(--color-secondary);
+            color: var(--color-white);
+            padding: 0.9rem 2.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(196, 48, 43, 0.3);
+            font-size: 1rem;
+            border: 2px solid transparent;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(196, 48, 43, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(196, 48, 43, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(196, 48, 43, 0);
+            }
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255,255,255,0.3), transparent);
+            transform: translateX(-100%);
+            transition: var(--transition);
+            z-index: -1;
+        }
+        .cta-button:hover {
+            transform: translateY(-5px);
+            background-color: #d63c36;
+            box-shadow: 0 8px 25px rgba(196, 48, 43, 0.4);
+            animation: none;
+        }
+        .cta-button:hover::before {
+            transform: translateX(100%);
+        }
+
+        /* Secciones */
+        .section {
+            padding: 5rem 0;
+            position: relative;
+            background-color: var(--color-light-bg);
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.3rem;
+            margin-bottom: 2.5rem;
+            color: var(--color-primary);
+            font-weight: 800;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--color-secondary);
+            border-radius: 2px;
+        }
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 2.5rem auto 3.5rem;
+            color: #666;
+            line-height: 1.7;
+        }
+        .mission-statement {
+            text-align: center;
+            font-size: 1.15rem;
+            max-width: 900px;
+            margin: 0 auto;
+            color: #555;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            background: linear-gradient(to right, rgba(26, 74, 130, 0.03), rgba(196, 48, 43, 0.03));
+            position: relative;
+            box-shadow: var(--box-shadow);
+            border-left: 4px solid var(--color-primary);
+        }
+        .mission-statement::before {
+            content: '\201C';
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            font-size: 4rem;
+            color: rgba(26, 74, 130, 0.1);
+            font-family: Georgia, serif;
+        }
+
+        /* Tarjetas mejoradas */
+        .cards-column {
+            display: flex;
+            flex-direction: column;
+            gap: 2.2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: var(--color-card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            position: relative;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 1;
+            padding: 1.8rem;
+        }
+        
+        .card:hover {
+            box-shadow: var(--box-shadow-hover);
+            background: var(--color-card-hover);
+            transform: translateY(-8px);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1.3rem;
+            margin-bottom: 1.2rem;
+        }
+        
+        .card-icon-container {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(26, 74, 130, 0.1);
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+        
+        .card:hover .card-icon-container {
+            background: rgba(196, 48, 43, 0.1);
+            transform: scale(1.05);
+        }
+        
+        .card-icon {
+            font-size: 2.2rem;
+            color: var(--color-primary);
+            transition: var(--transition);
+        }
+        
+        .card:hover .card-icon {
+            color: var(--color-secondary);
+        }
+        
+        .card-title {
+            font-size: 1.65rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            transition: var(--transition);
+            margin-bottom: 0.4rem;
+        }
+        
+        .card:hover .card-title {
+            color: var(--color-secondary);
+        }
+        
+        .card-summary {
+            color: #666;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            transition: var(--transition);
+            margin-bottom: 1.2rem;
+        }
+        
+        .card-expanded-content {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: var(--transition);
+            color: #555;
+            line-height: 1.7;
+            padding-left: 85px;
+        }
+        
+        .card:hover .card-expanded-content {
+            max-height: 300px;
+            opacity: 1;
+        }
+        
+        .card-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            border: 2px solid var(--color-primary);
+            color: var(--color-primary);
+            padding: 0.65rem 1.6rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            width: fit-content;
+            margin-top: 1.2rem;
+            margin-left: 85px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .card:hover .card-button {
+            border-color: var(--color-secondary);
+            color: var(--color-secondary);
+            background: rgba(196, 48, 43, 0.05);
+        }
+        
+        .card-button:hover {
+            background-color: var(--color-secondary) !important;
+            color: var(--color-white) !important;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(196, 48, 43, 0.2);
+        }
+
+        /* Pie de página - iconos corregidos */
+        .footer {
+            background: linear-gradient(to right, var(--color-primary), #2a5a9a);
+            color: var(--color-white);
+            padding: 3.5rem 0 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--color-secondary), #f39c12);
+        }
+        .footer::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+            z-index: 0;
+        }
+        .footer p { 
+            margin-bottom: 1.5rem; 
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 1;
+        }
+        .contact-info, .social-media { 
+            display: flex; 
+            justify-content: center; 
+            gap: 1.8rem; 
+            margin-bottom: 1.8rem; 
+            flex-wrap: wrap; 
+            position: relative;
+            z-index: 1;
+        }
+        .contact-info div, .social-media a { 
+            color: var(--color-white); 
+            font-size: 1rem; 
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .social-media a {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+        .social-media a:hover { 
+            transform: translateY(-5px); 
+            background-color: rgba(255, 255, 255, 0.2); 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .copyright { 
+            margin-top: 2.5rem; 
+            font-size: 0.9rem; 
+            color: rgba(255, 255, 255, 0.7); 
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Responsive Design Mejorado */
+        @media (max-width: 992px) {
+            .cards-column {
+                max-width: 700px;
+            }
+            .hero {
+                padding: 8rem 1.5rem 5rem;
+            }
+            .hero h1 {
+                font-size: 2.7rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content { 
+                flex-direction: row; 
+                padding-top: 0.5rem; 
+                padding-bottom: 0.5rem; 
+            }
+            .logo-section {
+                gap: 0.6rem;
+            }
+            .logo-container {
+                width: 50px;
+                height: 50px;
+            }
+            .site-title { 
+                font-size: 1.2rem; 
+            }
+            .subtitle { 
+                display: none; 
+            }
+            
+            .nav-menu { 
+                margin-top: 0; 
+                width: auto;
+            }
+            .nav-menu ul { 
+                justify-content: flex-end;
+                gap: 0.8rem;
+                flex-wrap: wrap;
+            }
+            .nav-menu a {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+            }
+            
+            .hero { 
+                padding: 7rem 1rem 4rem; 
+            }
+            .hero h1 { 
+                font-size: 2.1rem; 
+            }
+            .hero p { 
+                font-size: 1rem; 
+                margin-bottom: 2rem;
+            }
+            
+            .section { 
+                padding: 3.5rem 0; 
+            }
+            .section-title { 
+                font-size: 1.9rem; 
+                margin-bottom: 2rem;
+            }
+            .section-title::after {
+                bottom: -10px;
+                height: 3px;
+            }
+            .section-subtitle { 
+                font-size: 1rem; 
+                margin: 2rem auto 3rem;
+            }
+            .mission-statement { 
+                padding: 1.5rem; 
+                font-size: 1rem; 
+            }
+            
+            .card {
+                padding: 1.5rem;
+            }
+            .card-header {
+                flex-direction: row;
+                text-align: left;
+                gap: 1.2rem;
+            }
+            .card-icon-container {
+                width: 60px;
+                height: 60px;
+            }
+            .card-icon {
+                font-size: 1.8rem;
+            }
+            .card-title {
+                font-size: 1.4rem;
+            }
+            .card-summary {
+                font-size: 1rem;
+            }
+            .card-expanded-content {
+                padding-left: 72px;
+                text-align: left;
+            }
+            .card-button {
+                margin-left: 72px;
+                margin-top: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-content {
+                flex-wrap: wrap;
+            }
+            .logo-section {
+                flex: 1;
+            }
+            .nav-menu {
+                width: 100%;
+                margin-top: 0.5rem;
+            }
+            .nav-menu ul {
+                justify-content: space-around;
+                gap: 0.3rem;
+            }
+            .nav-menu a {
+                padding: 0.35rem 0.7rem;
+                font-size: 0.82rem;
+            }
+            
+            .hero h1 { 
+                font-size: 1.8rem; 
+                margin-bottom: 1.2rem;
+            }
+            .section-title { 
+                font-size: 1.7rem; 
+            }
+            .section-subtitle {
+                margin: 1.5rem auto 2.5rem;
+            }
+            
+            .card-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            .card-expanded-content {
+                padding-left: 0;
+                text-align: center;
+            }
+            .card-button {
+                margin: 1rem auto 0;
+                display: block;
+            }
+            
+            .contact-info { 
+                gap: 1.2rem; 
+                flex-direction: column;
+                align-items: center;
+            }
+            .contact-info div {
+                font-size: 0.95rem;
+            }
+            
+            /* Iconos de redes sociales en fila en móviles */
+            .social-media {
+                flex-direction: row !important;
+                flex-wrap: nowrap;
+                justify-content: center;
+                gap: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-hero-container">
+        <div class="iridescent-bg"></div>
+        
+        <header class="header">
+            <div class="container header-content">
+                <div class="logo-section">
+                    <div class="logo-container">
+                        <img src="logo.png" alt="Logo Brigada Educativa Cubana" class="logo-img">
+                    </div>
+                    <div>
+                        <h1 class="site-title">Brigada Educativa Cubana</h1>
+                        <p class="subtitle">Cooperación Educativa</p>
+                    </div>
+                </div>
+                <nav class="nav-menu">
+                    <ul>
+                        <li><a href="#inicio" class="active">Inicio</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section class="hero" id="inicio">
+            <div class="hero-content">
+                <h1>Educación para el Futuro: Cooperación, Crecimiento y Solidaridad</h1>
+                <p>Nuestra misión es sembrar conocimiento y cosechar progreso. La Brigada Educativa Cubana trabaja hombro a hombro con el pueblo de Guinea Ecuatorial, transformando la educación y construyendo un futuro más brillante y equitativo para las próximas generaciones.</p>
+                <a href="#servicios" class="cta-button">Conoce nuestro trabajo</a>
+            </div>
+        </section>
+    </div>
+
+    <main>
+        <section class="section" id="nosotros">
+            <div class="container">
+                <h2 class="section-title">Nuestra Misión</h2>
+                <p class="section-subtitle">Creemos firmemente en el poder de la educación para generar un cambio duradero y positivo en las comunidades.</p>
+                <p class="mission-statement">"Llevamos la excelencia educativa cubana a Guinea Ecuatorial, formando generaciones con valores de solidaridad, cooperación y desarrollo humano sostenible, inspirando a cada estudiante a ser un agente de cambio en su sociedad."</p>
+            </div>
+        </section>
+
+        <section class="section" id="servicios">
+            <div class="container">
+                <h2 class="section-title">Áreas de Impacto</h2>
+                <p class="section-subtitle">A través de programas especializados y un enfoque colaborativo, fortalecemos el sistema educativo en sus niveles más cruciales.</p>
+                
+                <div class="cards-column">
+                    <!-- Tarjeta 1 -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon-container">
+                                <i class="fas fa-chalkboard-teacher card-icon"></i>
+                            </div>
+                            <div>
+                                <h3 class="card-title">Formación Docente</h3>
+                                <p class="card-summary">Programas de capacitación continua para docentes con enfoque en metodologías pedagógicas modernas.</p>
+                            </div>
+                        </div>
+                        <div class="card-expanded-content">
+                            <p>Nuestros cursos están diseñados para fortalecer habilidades pedagógicas, gestión de aula y aplicación de tecnologías educativas. Creemos que un docente bien formado es la base de un sistema educativo de éxito.</p>
+                            <p>También ofrecemos talleres especializados en inclusión educativa para atender a estudiantes con necesidades diversas.</p>
+                        </div>
+                        <a href="formacion-docente" target="_blank" class="card-button">Más información</a>
+                    </div>
+                    
+                    <!-- Tarjeta 2 -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon-container">
+                                <i class="fas fa-book-open card-icon"></i>
+                            </div>
+                            <div>
+                                <h3 class="card-title">Educación Básica</h3>
+                                <p class="card-summary">Mejoramos la calidad de enseñanza en escuelas locales con currículos que fomentan pensamiento crítico.</p>
+                            </div>
+                        </div>
+                        <div class="card-expanded-content">
+                            <p>Promovemos actividades prácticas y proyectos colaborativos para desarrollar interés por el aprendizaje. Trabajamos con instituciones locales para asegurar que los contenidos sean relevantes y culturalmente apropiados.</p>
+                            <p>Hemos implementado programas de refuerzo escolar que han mejorado significativamente los resultados académicos de los estudiantes.</p>
+                        </div>
+                        <a href="educacion-basica.html" target="_blank" class="card-button">Más información</a>
+                    </div>
+                    
+                    <!-- Tarjeta 3 -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon-container">
+                                <i class="fas fa-users card-icon"></i>
+                            </div>
+                            <div>
+                                <h3 class="card-title">Proyectos Comunitarios</h3>
+                                <p class="card-summary">Desarrollamos iniciativas que promueven alfabetización y participación familiar en comunidades.</p>
+                            </div>
+                        </div>
+                        <div class="card-expanded-content">
+                            <p>Involucramos a padres de familia y líderes locales en programas de alfabetización para adultos y talleres de salud. Hemos establecido bibliotecas comunitarias en zonas rurales como centros de aprendizaje permanente.</p>
+                            <p>Nuestro programa "Escuelas Abiertas" ha recibido reconocimiento internacional por su impacto en el desarrollo comunitario.</p>
+                        </div>
+                        <a href="https://www.ejemplo.com/proyectos-comunitarios" target="_blank" class="card-button">Más información</a>
+                    </div>
+                    
+                    <!-- Tarjeta 4 -->
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-icon-container">
+                                <i class="fas fa-laptop-code card-icon"></i>
+                            </div>
+                            <div>
+                                <h3 class="card-title">Tecnología Educativa</h3>
+                                <p class="card-summary">Implementamos soluciones para modernizar el sistema educativo.</p>
+                            </div>
+                        </div>
+                        <div class="card-expanded-content">
+                            <p>Hemos proporcionado formación específica a docentes. Desarrollamos una plataforma de aprendizaje en línea con contenidos adaptados al currículo local.</p>
+                            <p>El programa "Guines" introduce a estudiantes en los fundamentos de la programación y el pensamiento computacional.</p>
+                        </div>
+                        <a href="https://www.ejemplo.com/tecnologia-educativa" target="_blank" class="card-button">Más información</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="contacto">
+        <div class="container footer-content">
+            <p>¡Únete a nuestra misión de transformar vidas a través de la educación y la solidaridad!</p>
+            <div class="contact-info">
+                <div><i class="fas fa-envelope"></i> brigadaeducativa.anisokcuba@gmail.com</div>
+                <div><i class="fas fa-phone"></i> +240 123 456 789</div>
+                <div><i class="fas fa-map-marker-alt"></i> Añisok, Guinea Ecuatorial</div>
+            </div>
+            <div class="social-media">
+                <a href="https://www.facebook.com/profile.php?id=61564763713026" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/brigadaeducativa" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com/brigadaeducativacubana" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com/brigadaeducativacubana" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="copyright">
+                &copy; 2025 Brigada Educativa Cubana. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Efecto para la cabecera al hacer scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Animación de aparición al hacer scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('.section-title, .section-subtitle, .card, .mission-statement');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animatedElements.forEach(el => {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(el);
+            });
+            
+            // Scroll suave para los enlaces internos
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Actualizar clase activa en el menú
+                        document.querySelectorAll('.nav-menu a').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        this.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>tylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <style>
     /* Botón hamburguesa */
     .menu-toggle {
