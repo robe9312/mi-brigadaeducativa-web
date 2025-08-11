@@ -1,93 +1,229 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Bienvenido a Mi Brigada Educativa - Educación para todos">
-    <title>Mi Brigada Educativa</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Botón hamburguesa */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mi Brigada Educativa</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    /* Botón hamburguesa */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      z-index: 200;
+    }
+    .menu-toggle span {
+      display: block;
+      width: 28px;
+      height: 3px;
+      background: var(--color-primary);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
 
-        .menu-toggle span {
-            display: block;
-            width: 25px;
-            height: 3px;
-            background: white;
-            transition: all 0.3s ease;
-        }
+    /* Header */
+    header.header {
+      background-color: var(--color-light-bg);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    .header-content {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0.7rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
 
-        /* Ocultar menú en móvil por defecto */
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-        }
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .logo-container {
+      width: 60px;
+      height: 60px;
+      background: rgba(26, 74, 130, 0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.07);
+      overflow: hidden;
+    }
+    .logo-img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+    }
+    .site-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin: 0;
+    }
+    .subtitle {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 0.1rem;
+      opacity: 0.85;
+    }
 
-        @media (max-width: 600px) {
-            .menu-toggle {
-                display: flex;
-            }
-            nav ul {
-                display: none;
-                flex-direction: column;
-                background-color: #004080;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                text-align: center;
-                padding: 1rem 0;
-            }
-            nav ul.active {
-                display: flex;
-            }
-        }
-    </style>
+    /* Nav escritorio */
+    .nav-menu ul {
+      list-style: none;
+      display: flex;
+      gap: 1.4rem;
+      margin: 0;
+      padding: 0;
+      justify-content: flex-end;
+    }
+    .nav-menu a {
+      color: var(--color-primary);
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: var(--transition);
+      position: relative;
+    }
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      background-color: var(--color-secondary);
+      color: var(--color-white);
+    }
+
+    /* Móvil */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      .nav-menu ul {
+        display: none;
+        flex-direction: column;
+        background-color: var(--color-light-bg);
+        position: absolute;
+        top: 70px;
+        right: 1.5rem;
+        width: 200px;
+        border-radius: 0 0 12px 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        padding: 1rem 0;
+        z-index: 150;
+      }
+      .nav-menu ul.active {
+        display: flex;
+      }
+
+      .nav-menu ul li {
+        margin: 0.4rem 0;
+      }
+      .nav-menu ul li a {
+        padding: 0.6rem 1.2rem;
+        color: var(--color-primary);
+      }
+      .nav-menu ul li a:hover,
+      .nav-menu ul li a.active {
+        background-color: var(--color-secondary);
+        color: var(--color-white);
+      }
+    }
+
+    /* Main */
+    main {
+      padding: 120px 1.5rem 4rem;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      color: #333;
+    }
+    main h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    main p {
+      font-size: 1.2rem;
+      color: #555;
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(to right, var(--color-primary), #2a5a9a);
+      color: var(--color-white);
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.95rem;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <img src="logo.png" alt="Logo de Mi Brigada Educativa">
-        <button class="menu-toggle" aria-label="Abrir menú">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="educacion-basica.html">Educación Básica</a></li>
-                <li><a href="formacion-docente.html">Formación Docente</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header class="header">
+    <div class="container header-content">
+      <div class="logo-section">
+        <div class="logo-container">
+          <img src="logo.png" alt="Logo de Mi Brigada Educativa" class="logo-img" />
+        </div>
+        <div>
+          <h1 class="site-title">Mi Brigada Educativa</h1>
+          <p class="subtitle">Educación para todos</p>
+        </div>
+      </div>
 
-    <main>
-        <h1>Bienvenido a Mi Brigada Educativa</h1>
-        <p>Un espacio dedicado a la educación inclusiva y de calidad para todos.</p>
-    </main>
+      <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-    <footer>
-        <p>&copy; 2025 Mi Brigada Educativa. Todos los derechos reservados.</p>
-    </footer>
+      <nav class="nav-menu" id="nav-menu">
+        <ul>
+          <li><a href="index.html" class="active">Inicio</a></li>
+          <li><a href="educacion-basica.html">Educación Básica</a></li>
+          <li><a href="formacion-docente.html">Formación Docente</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <script>
-        const menuToggle = document.querySelector(".menu-toggle");
-        const navMenu = document.querySelector("nav ul");
+  <main>
+    <h1>Bienvenido a Mi Brigada Educativa</h1>
+    <p>Un espacio dedicado a la educación inclusiva y de calidad para todos.</p>
+  </main>
 
-        menuToggle.addEventListener("click", () => {
-            navMenu.classList.toggle("active");
-        });
-    </script>
+  <footer>
+    <p>&copy; 2025 Mi Brigada Educativa. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navMenu = document.querySelector(".nav-menu ul");
+
+    menuToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+      const expanded = menuToggle.getAttribute("aria-expanded") === "true" || false;
+      menuToggle.setAttribute("aria-expanded", !expanded);
+    });
+  </script>
 </body>
 </html>
