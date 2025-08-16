@@ -1,0 +1,23 @@
+{
+  "name": "brigada-educativa-cubana",
+  "version": "1.0.0",
+  "description": "Sitio web oficial de la Brigada Educativa Cubana en Guinea Ecuatorial",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve .",
+    "build": "echo 'Static site - no build needed'"
+  },
+  "keywords": [
+    "educacion",
+    "cuba",
+    "guinea-ecuatorial",
+    "cooperacion",
+    "formacion-docente"
+  ],
+  "author": "Brigada Educativa Cubana",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}
