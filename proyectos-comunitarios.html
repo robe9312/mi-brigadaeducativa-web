@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos Comunitarios - Brigada Educativa Cubana</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Menu hamburguesa */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            z-index: 200;
+        }
+        .menu-toggle span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background: var(--color-white);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .header.scrolled .menu-toggle span {
+            background: var(--color-primary);
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-menu ul {
+                display: none;
+                flex-direction: column;
+                background-color: rgba(255, 255, 255, 0.98);
+                position: absolute;
+                top: 70px;
+                right: 1.5rem;
+                width: 200px;
+                border-radius: 0 0 12px 12px;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                padding: 1rem 0;
+                z-index: 150;
+            }
+            .nav-menu ul.active {
+                display: flex;
+            }
+
+            .nav-menu ul li {
+                margin: 0.4rem 0;
+            }
+            .nav-menu ul li a {
+                padding: 0.6rem 1.2rem;
+                color: var(--color-primary);
+                display: block;
+                border-radius: 8px;
+                margin: 0 0.5rem;
+            }
+            .nav-menu ul li a:hover,
+            .nav-menu ul li a.active {
+                background-color: var(--color-secondary);
+                color: var(--color-white);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo-section">
+                <div class="logo-container">
+                    <img src="logo.png" alt="Logo Brigada Educativa Cubana" class="logo-img">
+                </div>
+                <div>
+                    <h1 class="site-title">Brigada Educativa Cubana</h1>
+                    <p class="subtitle">Cooperación Educativa</p>
+                </div>
+            </div>
+            
+            <!-- Botón hamburguesa -->
+            <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="formacion-docente.html">Formación Docente</a></li>
+                    <li><a href="educacion-basica.html">Educación Básica</a></li>
+                    <li><a href="proyectos-comunitarios.html" class="active">Proyectos Comunitarios</a></li>
+                    <li><a href="tecnologia-educativa.html">Tecnología Educativa</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div id="proyectos-comunitarios" class="page-section">
+        <div class="page-hero">
+            <div class="container">
+                <h2 class="section-title">Proyectos Comunitarios</h2>
+                <p class="section-subtitle">Fortaleciendo comunidades a través de la educación inclusiva</p>
+            </div>
+        </div>
+        
+        <div class="page-content">
+            <div class="container">
+                <div class="content-grid">
+                    <div class="content-text">
+                        <h3>Educación que trasciende las aulas</h3>
+                        <p>Nuestros proyectos comunitarios buscan crear un ecosistema educativo integral que involucre a toda la comunidad en el proceso de aprendizaje y desarrollo social.</p>
+                        <p>Iniciativas principales:</p>
+                        <ul>
+                            <li>Programas de alfabetización para adultos</li>
+                            <li>Bibliotecas comunitarias móviles</li>
+                            <li>Talleres de salud y nutrición familiar</li>
+                            <li>Capacitación en oficios y emprendimiento</li>
+                            <li>Programas de educación ambiental</li>
+                            <li>Actividades culturales y deportivas</li>
+                        </ul>
+                        <p>Trabajamos directamente con líderes comunitarios, organizaciones locales y familias para asegurar que nuestros programas respondan a las necesidades reales de cada comunidad.</p>
+                    </div>
+                    <div class="content-image">Imagen: Actividades comunitarias</div>
+                </div>
+                
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <div class="stat-number">28</div>
+                        <div class="stat-label">Comunidades beneficiadas</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">8,500+</div>
+                        <div class="stat-label">Personas impactadas</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">15</div>
+                        <div class="stat-label">Bibliotecas establecidas</div>
+                    </div>
+                </div>
+
+                <div class="testimonials">
+                    <h3 class="section-title">Impacto en la Comunidad</h3>
+                    <div class="testimonial">
+                        <p class="testimonial-content">
+                            "Gracias al programa de alfabetización, ahora puedo ayudar a mis hijos con sus tareas y leer los mensajes de la escuela. Me siento más conectada con su educación."
+                        </p>
+                        <p class="testimonial-author">Rosa Mbomio, Madre de familia</p>
+                    </div>
+                    <div class="testimonial">
+                        <p class="testimonial-content">
+                            "La biblioteca comunitaria se ha convertido en el corazón de nuestro pueblo. Los niños vienen después de clases y los adultos participan en los talleres de fin de semana."
+                        </p>
+                        <p class="testimonial-author">Antonio Esono, Líder comunitario</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>¡Únete a nuestra misión de transformar vidas a través de la educación y la solidaridad!</p>
+            <div class="contact-info">
+                <div><i class="fas fa-envelope"></i> brigadaeducativa.anisokcuba@gmail.com</div>
+                <div><i class="fas fa-phone"></i> +240 123 456 789</div>
+                <div><i class="fas fa-map-marker-alt"></i> Añisok, Guinea Ecuatorial</div>
+            </div>
+            <div class="social-media">
+                <a href="https://www.facebook.com/profile.php?id=61564763713026" target="_blank" title="Visita nuestra página de Facebook"><i class="fab fa-facebook-f"></i></a>
+            </div>
+            <p class="copyright">
+                &copy; 2025 Brigada Educativa Cubana. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Efecto para la cabecera al hacer scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Animación de aparición al hacer scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('.section-title, .section-subtitle, .stat-card, .testimonial');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animatedElements.forEach(el => {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(el);
+            });
+
+            // Funcionalidad menú hamburguesa
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('.nav-menu ul');
+
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                    const expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+                    menuToggle.setAttribute('aria-expanded', !expanded);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
